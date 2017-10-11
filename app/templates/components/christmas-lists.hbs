@@ -1,0 +1,19 @@
+<ul class="list-group">
+  <li class="list-group-item">
+    {{one-way-input
+      name
+      class='form-control'
+      placeholder='Nouvelle liste de noel'
+      update=(action (mut name))
+      keyEvents=(hash
+        13=(action 'onEnter')
+        27=(action (mut name) '')
+      )
+    }}
+  </li>
+  {{#each lists as |list|}}
+    {{#link-to 'lists.list.gifts' list.slug tagName='li' class='list-group-item'}}
+      {{list.name}} <span class="badge pull-right">{{list.gifts.length}}</span>
+    {{/link-to}}
+  {{/each}}
+</ul>

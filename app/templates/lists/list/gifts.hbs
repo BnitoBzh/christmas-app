@@ -1,0 +1,31 @@
+<ul class="list-group">
+  {{#if canAddGift}}
+    <li class="list-group-item">
+      {{one-way-input
+        name
+        class='form-control'
+        placeholder='Nouvelle idée de cadeau'
+        update=(action (mut name))
+        keyEvents=(hash
+          13=(route-action 'addGift')
+          27=(action (mut showEditForm) false)
+        )
+      }}
+    </li>
+  {{/if}}
+  {{#each model as |gift|}}
+    <li class="list-group-item">
+      <div class="checkbox">
+        <label>
+          {{input type="checkbox" checked=gift.isBought}} {{gift.name}}
+        </label>
+      </div>
+    </li>
+  {{else}}
+    {{#unless canAddGift}}
+      <li class="list-group-item list-group-item-info">
+        <em>Votre liste de noêl est vide. <a class="alert-link" href="#" {{action (mut showEditForm) true}}>Ajouter une envie</a></em>
+      </li>
+    {{/unless}}
+  {{/each}}
+</ul>

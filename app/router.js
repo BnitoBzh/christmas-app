@@ -7,6 +7,11 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('lists', function() {
+    this.route('list', {path: '/:slug'}, function() {
+      this.route('gifts');
+    });
+  });
 });
 
 export default Router;
