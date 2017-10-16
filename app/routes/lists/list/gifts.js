@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import Gift from 'todos-app/models/gift';
 
 export default Ember.Route.extend({
   model: function() {
