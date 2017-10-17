@@ -14,7 +14,26 @@
       }}
     </li>
   {{/if}}
-  {{#each model as |gift|}}
+  {{#if hasGifts}}
+    <li class="list-group-item">
+      <div class="btn-toolbar">
+        <div class="btn-group btn-group-sm">
+          {{#link-to (query-params filter='all' sortField=sortField sortDirection=sortDirection) tagName='button' class='btn btn-default'}}Tous{{/link-to}}
+          {{#link-to (query-params filter='bought' sortField=sortField sortDirection=sortDirection) tagName='button' class='btn btn-default'}}Acheté(s){{/link-to}}
+          {{#link-to (query-params filter='available' sortField=sortField sortDirection=sortDirection) tagName='button' class='btn btn-default'}}Dispo(s){{/link-to}}
+        </div>
+        <div class="btn-group btn-group-sm pull-right">
+          {{#link-to (query-params filter=filter sortField=sortField sortDirection='asc') tagName='button' class='btn btn-default'}}<i class="glyphicon glyphicon-arrow-up"></i>{{/link-to}}
+          {{#link-to (query-params filter=filter sortField=sortField sortDirection='desc') tagName='button' class='btn btn-default'}}<i class="glyphicon glyphicon-arrow-down"></i>{{/link-to}}
+        </div>
+        <div class="btn-group btn-group-sm pull-right">
+          {{#link-to (query-params filter=filter sortField='name' sortDirection=sortDirection) tagName='button' class='btn btn-default'}}Nom{{/link-to}}
+          {{#link-to (query-params filter=filter sortField='priority' sortDirection=sortDirection) tagName='button' class='btn btn-default'}}Priorité{{/link-to}}
+        </div>
+      </div>
+    </li>
+  {{/if}}
+  {{#each sortedGifts as |gift|}}
     <li class="list-group-item gift-item {{if gift.isBought 'bought'}}">
       <div class="checkbox">
         <label>
