@@ -1,5 +1,7 @@
 import Controller from '@ember/controller';
+import { computed } from '@ember/object';
 
 export default Controller.extend({
-  isEditing: false
+  isEditing: false,
+  description: computed.oneWay('model.description')
 });
