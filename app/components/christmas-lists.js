@@ -6,7 +6,7 @@ export default Component.extend({
   isSaving: false,
 
   actions: {
-    onEnter: function() {
+    onEnter() {
       const name = this.get('name');
       if (!isEmpty(name)) {
         let christmasList = {

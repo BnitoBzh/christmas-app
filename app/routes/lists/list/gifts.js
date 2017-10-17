@@ -1,12 +1,12 @@
 import Route from '@ember/routing/route';
 
 export default Route.extend({
-  model: function() {
+  model() {
     const list = this.modelFor('lists.list');
     return list.get('gifts');
   },
 
-  resetController: function(controller) {
+  resetController(controller) {
     this._super(...arguments);
     controller.setProperties({
       name: '',
