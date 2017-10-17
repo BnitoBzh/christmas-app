@@ -5,5 +5,20 @@
   {{#nav.item}}
     {{#nav.link-to 'lists.list.gifts' model.id}}Cadeaux{{/nav.link-to}}
   {{/nav.item}}
+  {{#nav.item class='pull-right'}}
+    {{#bs-button type='danger' size='sm' onClick=(action (mut showDeleteConfirmationModal) true)}}Supprimer{{/bs-button}}
+  {{/nav.item}}
 {{/bs-nav}}
 {{outlet}}
+{{#bs-modal-simple
+  open=showDeleteConfirmationModal
+  title='Confirmation de suppression'
+  closeTitle='Fermer'
+  submitTitle='Oui, supprimer'
+  closeButton='Annuler'
+  onHidden=(action (mut showDeleteConfirmationModal) false)
+  onSubmit=(route-action 'deleteList' model)
+}}
+  Etes-vous sûr de vouloir supprimer la liste "{{model.name}}" ?<br>
+  <em class="text-muted">les {{model.gifts.length}} cadeaux seront effacés</em>
+{{/bs-modal-simple}}
