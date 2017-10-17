@@ -1,7 +1,8 @@
-import Ember from 'ember';
+import Controller from '@ember/controller';
+import { computed } from '@ember/object';
 
-export default Ember.Controller.extend({
-  hasGifts: Ember.computed.gt('model.length', 0),
+export default Controller.extend({
+  hasGifts: computed.gt('model.length', 0),
   showEditForm: false,
-  canAddGift: Ember.computed.or('hasGifts', 'showEditForm')
+  canAddGift: computed.or('hasGifts', 'showEditForm')
 });

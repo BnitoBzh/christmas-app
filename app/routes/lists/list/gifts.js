@@ -1,7 +1,6 @@
-import Ember from 'ember';
-import Gift from 'todos-app/models/gift';
+import Route from '@ember/routing/route';
 
-export default Ember.Route.extend({
+export default Route.extend({
   model: function() {
     const list = this.modelFor('lists.list');
     return list.get('gifts');
@@ -16,13 +15,17 @@ export default Ember.Route.extend({
   },
 
   actions: {
-    addGift: function(name) {
+    addGift(name) {
+      const controller = this.controllerFor('lists.list.gifts');
       const list = this.modelFor('lists.list');
-      const gift = Gift.create({
-        name
+      this.get('store').createRecord('gift', {
+        name,
+        list
       });
-      list.get('gifts').pushObject(gift);
-      this.controllerFor('lists.list.gifts').set('name', '');
+      controller.setProperties({
+        name: '',
+        showForm: false
+      });
     }
   }
 });

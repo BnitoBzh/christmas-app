@@ -1,8 +1,7 @@
-import Ember from 'ember';
+import Route from '@ember/routing/route';
 
-export default Ember.Route.extend({
-  model: function(params) {
-    const lists = this.modelFor('lists');
-    return lists.findBy('slug', params.slug);
+export default Route.extend({
+  model(params) {
+    return this.get('store').findRecord('list', params.id, {reload: true, include: 'gifts'});
   }
 });

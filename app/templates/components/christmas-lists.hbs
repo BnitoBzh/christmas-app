@@ -12,8 +12,8 @@
     }}
   </li>
   {{#each lists as |list|}}
-    {{#link-to 'lists.list.gifts' list.slug tagName='li' class='list-group-item'}}
-      {{list.name}} <span class="badge pull-right">{{list.gifts.length}}</span>
+    {{#link-to 'lists.list.gifts' list.id tagName='li' class='list-group-item'}}
+      {{list.name}}
     {{/link-to}}
   {{/each}}
 </ul>
