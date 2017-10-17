@@ -1,0 +1,3 @@
+{{#each stars as |star|}}
+  <a href="#" {{action 'setPriority' star.priority}} class="glyphicon {{if star.full 'glyphicon-star' 'glyphicon-star-empty'}}"></a>
+{{/each}}

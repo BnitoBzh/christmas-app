@@ -21,6 +21,7 @@
           {{one-way-checkbox gift.isBought update=(action 'updateGiftStatus' gift)}} {{gift.name}}
         </label>
       </div>
+      {{gift-priority gift=gift onUpdate=(route-action 'updateGift')}}
     </li>
   {{else}}
     {{#unless canAddGift}}
