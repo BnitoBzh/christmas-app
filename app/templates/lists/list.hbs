@@ -1,0 +1,9 @@
+{{#bs-nav type='tabs' as |nav|}}
+  {{#nav.item}}
+    {{#nav.link-to 'lists.list.details' model.id}}Détails{{/nav.link-to}}
+  {{/nav.item}}
+  {{#nav.item}}
+    {{#nav.link-to 'lists.list.gifts' model.id}}Cadeaux{{/nav.link-to}}
+  {{/nav.item}}
+{{/bs-nav}}
+{{outlet}}

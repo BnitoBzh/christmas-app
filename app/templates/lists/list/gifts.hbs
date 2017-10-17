@@ -14,7 +14,7 @@
     </li>
   {{/if}}
   {{#each model as |gift|}}
-    <li class="list-group-item">
+    <li class="list-group-item gift-item {{if gift.isBought 'bought'}}">
       <div class="checkbox">
         <label>
           {{input type="checkbox" checked=gift.isBought}} {{gift.name}}
@@ -23,8 +23,8 @@
     </li>
   {{else}}
     {{#unless canAddGift}}
-      <li class="list-group-item list-group-item-info">
-        <em>Votre liste de noêl est vide. <a class="alert-link" href="#" {{action (mut showEditForm) true}}>Ajouter une envie</a></em>
+      <li class="list-group-item empty-list">
+        <em class="empty-message">Votre liste de noêl est vide. <a class="alert-link" href="#" {{action (mut showEditForm) true}}>Ajouter une envie</a></em>
       </li>
     {{/unless}}
   {{/each}}

@@ -1,0 +1,46 @@
+@import "ember-bootstrap/bootstrap";
+.nav-tabs {
+  margin-bottom: 20px;
+}
+.empty-list {
+  min-height: 100px;
+  .text-center();
+}
+.empty-list .empty-message {
+  display: inline-block;
+  color: #555;
+  line-height: 100px;
+}
+
+.panel-details:extend(.panel-default) {
+  .panel-title {
+    margin-bottom: 20px;
+    .pull-left();
+  }
+}
+
+.gift-item {
+  .clearfix();
+  > .checkbox {
+    .pull-left();
+    margin: 0;
+  }
+  &.bought {
+    .text-muted();
+    .checkbox > label {
+      text-decoration: line-through;
+    }
+  }
+}
+
+.priority-panel {
+  .pull-right();
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .glyphicon-star-empty {
+    .text-muted();
+  }
+}
