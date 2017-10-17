@@ -26,6 +26,10 @@ export default Route.extend({
         name: '',
         showForm: false
       });
+    },
+    updateGift(gift) {
+
+      gift.save();
     }
   }
 });

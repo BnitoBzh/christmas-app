@@ -17,7 +17,7 @@
     <li class="list-group-item gift-item {{if gift.isBought 'bought'}}">
       <div class="checkbox">
         <label>
-          {{input type="checkbox" checked=gift.isBought}} {{gift.name}}
+          {{one-way-checkbox gift.isBought update=(action 'updateGiftStatus' gift)}} {{gift.name}}
         </label>
       </div>
     </li>

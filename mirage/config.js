@@ -27,4 +27,7 @@ export default function() {
   this.get('/lists');
   this.get('/lists/:id');
   this.post('/lists');
+  this.patch('/lists/:id');
+
+  this.patch('/gifts/:id');
 }

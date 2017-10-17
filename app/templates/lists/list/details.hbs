@@ -1,1 +1,20 @@
-{{outlet}}
+<div class="panel panel-details">
+  <div class="panel-body">
+    <h4 class="panel-title">Description</h4>
+    {{#if isEditing}}
+      {{bs-button
+        type='primary'
+        class='pull-right'
+        defaultText='Enregistrer'
+        pendingText='Enregistrement...'
+        resolvedText='Enregistré'
+        onClick=(route-action 'save')}}
+      <div class='clearfix'></div>
+      {{textarea class='form-control' value=model.description}}
+    {{else}}
+      <button class="btn btn-primary pull-right" {{action (mut isEditing) true}}>Modifier</button>
+      <div class='clearfix'></div>
+      <p>{{model.description}}</p>
+    {{/if}}
+  </div>
+</div>
