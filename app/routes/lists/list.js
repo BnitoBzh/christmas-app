@@ -13,7 +13,15 @@ export default Route.extend({
   actions: {
     deleteList(list) {
       list.deleteRecord();
-      return list.save().then(() => this.transitionTo('lists'));
+      const lists = this.modelFor('lists');
+      let next = lists.filterBy('isDeleted', false).get('firstObject');
+
+      return list.save().then(() => {
+        if(next) {
+          return this.transitionTo('lists.list', next.get('id'));
+        }
+        return this.transitionTo('lists');
+      });
     }
   }
 });
