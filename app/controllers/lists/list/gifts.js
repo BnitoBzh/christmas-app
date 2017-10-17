@@ -30,10 +30,8 @@ export default Controller.extend({
   }),
   sortedGifts: computed.sort('filteredGifts', 'sortProperties'),
 
-
   showEditForm: false,
   canAddGift: computed.or('hasGifts', 'showEditForm'),
-
   isAdding: false,
 
   actions: {
