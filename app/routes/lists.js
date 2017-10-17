@@ -7,9 +7,8 @@ export default Route.extend({
 
   actions: {
     addList: function(listData) {
-      this.modelFor('lists').pushObject(
-        this.get('store').createRecord('list', listData)
-      );
+      const newList = this.get('store').createRecord('list', listData);
+      newList.save();
     }
   }
 });

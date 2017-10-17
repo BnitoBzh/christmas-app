@@ -1,4 +1,5 @@
 import Component from '@ember/component';
+import { isEmpty } from '@ember/utils';
 
 export default Component.extend({
   name: '',
@@ -6,7 +7,7 @@ export default Component.extend({
   actions: {
     onEnter: function() {
       const name = this.get('name');
-      if (!Ember.isEmpty(name)) {
+      if (!isEmpty(name)) {
         let christmasList = {
           name
         };
