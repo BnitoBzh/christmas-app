@@ -8,7 +8,9 @@ export default Route.extend({
   actions: {
     addList: function(listData) {
       const newList = this.get('store').createRecord('list', listData);
-      newList.save().then(list => this.transitionTo('lists.list', list));
+      return newList.save().then(list => {
+        this.transitionTo('lists.list', list.get('id'));
+      });
     }
   }
 });

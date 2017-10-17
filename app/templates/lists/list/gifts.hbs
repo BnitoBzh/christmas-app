@@ -2,9 +2,10 @@
   {{#if canAddGift}}
     <li class="list-group-item">
       {{one-way-input
-        name
+        (unless isAdding name 'Enregistrement ...')
         class='form-control'
         placeholder='Nouvelle idée de cadeau'
+        disabled=isAdding
         update=(action (mut name))
         keyEvents=(hash
           13=(route-action 'addGift')

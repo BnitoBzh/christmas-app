@@ -6,6 +6,8 @@ export default Controller.extend({
   showEditForm: false,
   canAddGift: computed.or('hasGifts', 'showEditForm'),
 
+  isAdding: false,
+
   actions: {
     updateGiftStatus(gift, status) {
       gift.set('isBought', status);

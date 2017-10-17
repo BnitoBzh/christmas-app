@@ -1,9 +1,10 @@
 <ul class="list-group">
   <li class="list-group-item">
     {{one-way-input
-      name
+      (unless isSaving name 'Enregistrement ...')
       class='form-control'
       placeholder='Nouvelle liste de noel'
+      disabled=isSaving
       update=(action (mut name))
       keyEvents=(hash
         13=(action 'onEnter')

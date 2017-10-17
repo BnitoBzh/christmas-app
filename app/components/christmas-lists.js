@@ -3,6 +3,7 @@ import { isEmpty } from '@ember/utils';
 
 export default Component.extend({
   name: '',
+  isSaving: false,
 
   actions: {
     onEnter: function() {
@@ -11,8 +12,14 @@ export default Component.extend({
         let christmasList = {
           name
         };
-        this.get('addList')(christmasList);
-        this.set('name', '');
+
+        this.set('isSaving', true);
+        this.get('addList')(christmasList).then(() => {
+          this.setProperties({
+            name: '',
+            isSaving: false
+          })
+        });
       }
     }
   }
